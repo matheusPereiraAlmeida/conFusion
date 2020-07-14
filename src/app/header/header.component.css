@@ -5,3 +5,15 @@
     color:floralwhite;
     min-height: 150px;
 }
+
+.active {
+    background: #4527A0;
+}
+
+.mat-toolbar{
+    background-color: #7450b4;
+}
+
+.mat-button{
+    color: black;
+}
