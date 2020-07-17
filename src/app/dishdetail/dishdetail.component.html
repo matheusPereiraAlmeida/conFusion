@@ -65,7 +65,7 @@
       <p>
         <mat-form-field style="width: 100%;">
           <input matInput formControlName="name" placeholder="Name" type="text" required>
-          <mat-error *ngIf="formErrors.name"></mat-error>{{formErrors.name}}</mat-error>
+          <mat-error *ngIf="formErrors.name">{{formErrors.name}}</mat-error>
         </mat-form-field>
       </p>
       <p>

@@ -61,15 +61,15 @@ export class DishdetailComponent implements OnInit {
       this.dishdetailFeedbackForm = this.fb.group({
         name: ['', [Validators.required, Validators.minLength(2)] ],
         rating: ['', [Validators.required] ],
-        message: ['', [Validators.required] ],
+        message: ['', [Validators.required], Validators.minLength(2) ],
       });
     }
 
     createForm() {
       this.dishdetailFeedbackForm = this.fb.group({
-        name: ['', Validators.required ],
-        rating: ['', Validators.required ],
-        message: ['', Validators.required ]
+        name: ['', Validators.required, Validators.minLength(2) ],
+        rating: ['', Validators.required],
+        message: ['', Validators.required, Validators.minLength(2) ]
       });
 
       this.dishdetailFeedbackForm.valueChanges
