@@ -18,6 +18,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSliderModule } from '@angular/material/slider'
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 import 'hammerjs';
 
@@ -33,6 +35,7 @@ import { ContactComponent } from './contact/contact.component';
 import { DishService } from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
+import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { LoginComponent } from './login/login.component';
@@ -54,6 +57,7 @@ import { LoginComponent } from './login/login.component';
     MatToolbarModule,
     FlexLayoutModule,
     MatListModule, 
+    HttpModule,
     MatGridListModule,
     MatCardModule,
     MatButtonModule,
@@ -68,12 +72,17 @@ import { LoginComponent } from './login/login.component';
     MatSelectModule,
     MatSlideToggleModule,
     ReactiveFormsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    HttpClientModule 
   ],
   entryComponents: [
     LoginComponent
   ],
-  providers: [DishService,PromotionService, LeaderService],
+  providers: [DishService,
+    PromotionService, 
+    LeaderService, 
+    ProcessHTTPMsgService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

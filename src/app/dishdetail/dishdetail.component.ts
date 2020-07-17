@@ -7,6 +7,7 @@ import { switchMap } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Comment } from '../shared/comment';
 import { DatePipe } from '@angular/common';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-dishdetail',
@@ -24,6 +25,8 @@ export class DishdetailComponent implements OnInit {
     dishdetailFeedbackForm: FormGroup;
     commment = new Comment();
     myDate = new Date(); 
+    base_url: string =  environment.BASE_URL ;
+    dishcopy: Dish;
 
     constructor(
       private dishservice: DishService,
@@ -57,6 +60,12 @@ export class DishdetailComponent implements OnInit {
       this.commment.date = this.myDate.toISOString();
       
       this.dish.comments.push(this.commment);
+
+      this.dishcopy.comments.push(this.commment);
+      this.dishservice.putDish(this.dishcopy)
+      .subscribe(dish => {
+        this.dish = dish; this.dishcopy = dish;console.log("FOI");
+      });
 
       this.dishdetailFeedbackForm = this.fb.group({
         name: ['', [Validators.required, Validators.minLength(2)] ],
